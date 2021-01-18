@@ -1,9 +1,13 @@
 version: 2.1
 
 jobs:
-  my_job:
+  configure_infrastructure:
+    docker:
+      - image: python:3.7-alpine3.11
+    steps:
+      - checkout
 
 workflows:
-  jobs:
-    my_job:
-
+  my_workflow:
+    jobs:
+      - configure_infrastructure
